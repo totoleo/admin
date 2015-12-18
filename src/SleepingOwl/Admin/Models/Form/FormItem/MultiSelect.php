@@ -1,5 +1,6 @@
 <?php namespace SleepingOwl\Admin\Models\Form\FormItem;
 
+use Illuminate\Support\Collection;
 use SleepingOwl\Admin\Exceptions\MethodNotFoundException;
 use SleepingOwl\Admin\Exceptions\ValueNotSetException;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -129,6 +130,9 @@ class MultiSelect extends BaseFormItem
 		if (count($result) == 0 && ! $this->form->instance->exists)
 		{
 			return $this->getDefault();
+		}
+		if($result instanceof Collection){
+			$result = $result->toArray();
 		}
 		return $result;
 	}

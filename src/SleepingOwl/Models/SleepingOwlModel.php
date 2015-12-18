@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use InvalidArgumentException;
+use Illuminate\Database\Eloquent\Model;
 use SleepingOwl\Models\Interfaces\ValidationModelInterface;
 use SleepingOwl\Models\Traits\DeleteAllModelTrait;
 use SleepingOwl\Models\Traits\ModelWithImageOrFileFieldsTrait;
@@ -10,7 +11,7 @@ use SleepingOwl\Models\Traits\ValidationModelTrait;
 /**
  * @method static defaultSort()
  */
-abstract class SleepingOwlModel extends \Eloquent implements ValidationModelInterface
+abstract class SleepingOwlModel extends Model implements ValidationModelInterface
 {
 	use DeleteAllModelTrait, ValidationModelTrait, ModelWithImageOrFileFieldsTrait;
 	use \SleepingOwl\WithJoin\WithJoinTrait;
